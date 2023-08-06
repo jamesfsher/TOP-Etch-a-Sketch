@@ -1,6 +1,11 @@
 .containerGrid {
     display: flex;
     width: 960px;
-    /* height:auto; */
     flex-wrap: wrap;
 }
+
+.pixel {
+    background-color: lightblue;
+    flex: 0 1 auto;
+}
+
