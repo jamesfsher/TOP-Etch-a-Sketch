@@ -9,3 +9,31 @@
     flex: 0 1 auto;
 }
 
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    column-gap: 15px;
+    row-gap: 15px;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.item3 {
+    background-color: red;
+}
+
+.item4 {
+    background-color: green;
+}
+
+.item5 {
+    background-color: aqua;
+}
+
+.item6 {
+    background-color: yellow;
+}
+
