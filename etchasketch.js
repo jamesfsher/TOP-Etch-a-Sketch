@@ -1,7 +1,3 @@
-// create a 16 x 16 grid of square divs
-// use javascript to create
-// place them in another container
-
 // Function to create drawing grid
 function createGrid(num) {
     // Clear etch a sketch container
@@ -34,16 +30,21 @@ function createGrid(num) {
 
 // Function to change background color on hovered pixel to black
 function draw(event) {
+    // Determines the currently selected drawing style from the activated button
     let style = document.querySelector("#changeGrid")
+    // Gradient or "darkening" effect
     if (style.className == "gradient") {
+        // Gets the current style of the pixel
         var computedStyle = window.getComputedStyle(event.currentTarget);
+        // Assigns current pixels background color to new variable
         var bgColor = computedStyle.backgroundColor;
-        console.log(bgColor);
+        // Assigns r g b values to their own array
         let colorValues = bgColor.slice(4, -1).split(", ");
         let redValue = parseInt(colorValues[0], 10);
         let greenValue = parseInt(colorValues[1], 10);
         let blueValue = parseInt(colorValues[2], 10);
 
+        // Darkens the r g b values by 10% until they reach 0
         redValue = redValue - 25;
         if (redValue < 0) {
             redValue = 0;
@@ -58,21 +59,25 @@ function draw(event) {
         if (blueValue < 0) {
             blueValue = 0;
         }
-        
-        let newBackground = "rgb(" + redValue + ", " + greenValue + ", " + blueValue + ")";
-        console.log(newBackground);
 
+        // Creates new rgb() background color with new values
+        let newBackground = "rgb(" + redValue + ", " + greenValue + ", " + blueValue + ")";
+        // Sets pixel to new backgroudn color
         event.currentTarget.style.backgroundColor = newBackground;
     }
+    // Assigns random color to current pixel
     else if (style.className == "randColor") {
+        // Calls random function for each r g b value
         const randColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
         event.currentTarget.style.backgroundColor = randColor;
     }
+    // Default drawing mode is to make the background black
     else {
         event.currentTarget.style.backgroundColor = 'black';
     }
 }
 
+// Random number generator 
 function random(number) {
     return Math.floor(Math.random() * (number + 1));
 }
@@ -90,17 +95,23 @@ function changeGrid() {
         size = size.trim();
 
     }
+    // Sets size to an int and rounds it to a whole number
+    parseInt(size, 10);
+    size = Math.floor(size);
     createGrid(size);
 }
 
+// Sets current mode to 'random color'
 function randColor() {
     document.querySelector("#changeGrid").className = 'randColor';
 }
 
+// Sets current mode to 'gradient'
 function gradient() {
     document.querySelector("#changeGrid").className = 'gradient';
 }
 
+// Sets current mode to 'black and white'
 function blackWhite() {
     document.querySelector("#changeGrid").className = 'blackWhite';
 }
