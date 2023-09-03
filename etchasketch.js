@@ -36,15 +36,45 @@ function createGrid(num) {
 function draw(event) {
     let style = document.querySelector("#changeGrid")
     if (style.className == "gradient") {
-        event.currentTarget.style.backgroundColor = 'black';
+        var computedStyle = window.getComputedStyle(event.currentTarget);
+        var bgColor = computedStyle.backgroundColor;
+        console.log(bgColor);
+        let colorValues = bgColor.slice(4, -1).split(", ");
+        let redValue = parseInt(colorValues[0], 10);
+        let greenValue = parseInt(colorValues[1], 10);
+        let blueValue = parseInt(colorValues[2], 10);
+
+        redValue = redValue - 25;
+        if (redValue < 0) {
+            redValue = 0;
+        }
+
+        greenValue = greenValue - 25;
+        if (greenValue < 0) {
+            greenValue = 0;
+        }
+
+        blueValue = blueValue - 25;
+        if (blueValue < 0) {
+            blueValue = 0;
+        }
+        
+        let newBackground = "rgb(" + redValue + ", " + greenValue + ", " + blueValue + ")";
+        console.log(newBackground);
+
+        event.currentTarget.style.backgroundColor = newBackground;
     }
     else if (style.className == "randColor") {
-        event.currentTarget.style.backgroundColor =
-            "#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, "0");
+        const randColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+        event.currentTarget.style.backgroundColor = randColor;
     }
     else {
         event.currentTarget.style.backgroundColor = 'black';
     }
+}
+
+function random(number) {
+    return Math.floor(Math.random() * (number + 1));
 }
 
 // Function to allow user to change grid size
