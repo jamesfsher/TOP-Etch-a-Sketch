@@ -71,6 +71,10 @@ function draw(event) {
         const randColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
         event.currentTarget.style.backgroundColor = randColor;
     }
+    // Sets pixel color to match original background color
+    else if (style.className == "eraser") {
+        event.currentTarget.style.backgroundColor = 'lightgrey';
+    }
     // Default drawing mode is to make the background black
     else {
         event.currentTarget.style.backgroundColor = 'black';
@@ -114,6 +118,9 @@ function gradient() {
 // Sets current mode to 'black and white'
 function blackWhite() {
     document.querySelector("#changeGrid").className = 'blackWhite';
+}
+function eraser() {
+    document.querySelector("#changeGrid").className = 'eraser';
 }
 
 // Call function to create the pixel Grid

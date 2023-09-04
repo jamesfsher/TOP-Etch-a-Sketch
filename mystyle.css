@@ -1,8 +1,17 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: rgb(105, 244, 95);
+    width: 100%;
+    height: 100%;
+}
+
 .containerGrid {
     display: flex;
     width: 960px;
     height: auto;
     flex-wrap: wrap;
+    background-color: rgb(125, 125, 125);
 }
 
 .pixel {
@@ -11,17 +20,62 @@
     box-sizing: border-box;
     border-style: solid;
     border-width: 1px;
+    border-radius: 2px;
     border-color: rgb(125, 125, 125);
 }
 
 .container {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    column-gap: 15px;
+    grid-template-rows: auto auto;
+    column-gap: 15px;   
     row-gap: 15px;
     justify-items: center;
     align-items: center;
     justify-content: center;
     align-content: center;
+    padding-bottom: 2.5rem;
+}   
+
+.button-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 5px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
 }
+
+button:hover {
+    background-color: yellow;
+}
+
+button {
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: auto;
+    padding: 15px;
+    font-size: 20px;
+}
+.title {
+    font-size: 50px;
+    font-weight: bolder;
+    font-style: italic;
+    padding: 20px;
+}
+
+.footer-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+

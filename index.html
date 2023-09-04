@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="mystyle.css">
     <title>TOP Etch a Sketch</title>
 </head>
-<body>
-    <div class="container">
-        <div class="button-contianer">
-            <button class="" type="button" id="changeGrid" onclick="changeGrid()">Change Grid Size</button>
-        </div>
-        <div class="containerGrid">
-        </div>
-        <div class="item3">
-            <button type="button" id="randColor" onclick="randColor()">Randomize RGB</button>
-            <button type="button" id="gradient" onclick="gradient()">Color Gradient</button>
-            <button type="button" id="blackWhite" onclick="blackWhite()">Black and White</button>
-        </div>    
-    </div>
 
+<body>
+    <div class="page-container">
+        <div class="container">
+            <div></div>
+            <div class="title">Etch-A-Sketch!</div>
+            <div></div>
+            <button class="" type="button" id="changeGrid" onclick="changeGrid()">Change Grid Size</button>
+            <div class="containerGrid">
+            </div>
+            <div class="button-container">
+                <button type="button" id="randColor" onclick="randColor()">Randomize RGB</button>
+                <button type="button" id="gradient" onclick="gradient()">Color Gradient</button>
+                <button type="button" id="blackWhite" onclick="blackWhite()">Black and White</button>
+                <button type="button" id="eraser" onclick="eraser()">Eraser</button>
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="link" href="https://www.theodinproject.com/">The Odin Project</div>
+            <div class="link" href="https://github.com/jamesfsher">Github</div>
+            <div class="footer-text">Created by James</div>
+        </div>
+    </div>
     <script src="etchasketch.js"></script>
 </body>
+
 </html>
